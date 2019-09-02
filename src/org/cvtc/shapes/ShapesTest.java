@@ -13,7 +13,7 @@ public class ShapesTest {
 		
 		cylinder.render();
 		
-		Sphere sphere = new Sphere(6);
+		Sphere sphere = new Sphere(5);
 		
 		sphere.render();
 		
