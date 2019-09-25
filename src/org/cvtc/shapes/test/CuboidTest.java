@@ -3,13 +3,17 @@ package org.cvtc.shapes.test;
 import static org.junit.Assert.*;
 
 import org.cvtc.shapes.Cuboid;
+import org.cvtc.shapes.Dialog;
+import org.cvtc.shapes.MessageBoxSub;
 import org.junit.Test;
 
 public class CuboidTest {
 	
-	Cuboid cube1 = new Cuboid(-1,0,10);
-	Cuboid cube2 = new Cuboid(20,15,11);
-	Cuboid cube3 = new Cuboid(-10,50,2);
+	Dialog messageBox = new MessageBoxSub();
+	
+	Cuboid cube1 = new Cuboid(messageBox, -1,0,10);
+	Cuboid cube2 = new Cuboid(messageBox, 20,15,11);
+	Cuboid cube3 = new Cuboid(messageBox, -10,50,2);
 	
 	 
 	@Test
@@ -82,5 +86,13 @@ public class CuboidTest {
 		assertEquals(100.0, cube3.volume(), 0.0);
 		
 	}
+	
+	@Test
+	public void testRender() {
+		
+		cube1.render();
+		
+	}
+	
 
 }

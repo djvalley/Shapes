@@ -3,13 +3,17 @@ package org.cvtc.shapes.test;
 import static org.junit.Assert.*;
 
 import org.cvtc.shapes.Cylinder;
+import org.cvtc.shapes.Dialog;
+import org.cvtc.shapes.MessageBoxSub;
 import org.junit.Test;
 
 public class CylinderTest {
 
-	Cylinder cylinder1 = new Cylinder(-1, 0);
-	Cylinder cylinder2 = new Cylinder(-100, 50);
-	Cylinder cylinder3 = new Cylinder(13, 6.5f);
+	Dialog messageBox = new MessageBoxSub();
+	
+	Cylinder cylinder1 = new Cylinder(messageBox, -1, 0);
+	Cylinder cylinder2 = new Cylinder(messageBox, -100, 50);
+	Cylinder cylinder3 = new Cylinder(messageBox, 13, 6.5f);
 	
 
 	@Test
@@ -76,4 +80,12 @@ public class CylinderTest {
 		assertEquals(3451.03955078125, cylinder3.volume(), 0.0);
 	
 	}
+	
+	@Test
+	public void testRender() {
+		
+		cylinder1.render();
+		
+	}
+	
 }

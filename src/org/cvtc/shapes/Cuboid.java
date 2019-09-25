@@ -1,8 +1,7 @@
 package org.cvtc.shapes;
-import javax.swing.JOptionPane;
 
 
-public class Cuboid extends Shape{
+public class Cuboid extends Shape implements Renderer{
 	
 	
 	private float width = 0.0f;
@@ -10,8 +9,8 @@ public class Cuboid extends Shape{
 	private float depth = 0.0f;
 	
 
-	public Cuboid(float width, float height, float depth) {
-		super();
+	public Cuboid(Dialog messageBox, float width, float height, float depth) {
+		super(messageBox);
 		this.width = (width > 0) ? width : 1 ;
 		this.height = (height > 0) ? height : 1 ;
 		this.depth = (depth > 0) ? depth : 1 ;
@@ -21,7 +20,7 @@ public class Cuboid extends Shape{
 		return width;
 	}
 
-	public void setWidth(float width) {
+	private void setWidth(float width) {
 		this.width = (width > 0) ? width : 1 ;
 	}
 
@@ -29,7 +28,7 @@ public class Cuboid extends Shape{
 		return height;
 	}
 
-	public void setHeight(float height) {
+	private void setHeight(float height) {
 		this.height = (height > 0) ? height : 1 ;
 	}
 
@@ -37,7 +36,7 @@ public class Cuboid extends Shape{
 		return depth;
 	}
 
-	public void setDepth(float depth) {
+	private void setDepth(float depth) {
 		this.depth = (depth > 0) ? depth : 1 ;
 	}
 
@@ -60,7 +59,8 @@ public class Cuboid extends Shape{
 						 "Surface Area: " + surfaceArea() + "\n" +
 						 "Volume: " + volume() + "\n";
 
-		JOptionPane.showMessageDialog(null, message);
+		String title = "Cuboid";
+		getMessageBox().show(message, title);
 		
 	}
 

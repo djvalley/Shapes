@@ -1,15 +1,14 @@
 package org.cvtc.shapes;
-import javax.swing.JOptionPane;
 
 
-public class Sphere extends Shape{
+public class Sphere extends Shape implements Renderer{
 	
 	
 	private float radius = 0.0f;
 	
 
-	public Sphere(float radius) {
-		super();
+	public Sphere(Dialog messageBox, float radius) {
+		super(messageBox);
 		this.radius = (radius > 0) ? radius : 1 ;
 	}
 
@@ -37,8 +36,9 @@ public class Sphere extends Shape{
 		String message = "Radius: " + radius + "\n" + 
 						 "Surface Area: " + surfaceArea() + "\n" +
 						 "Volume: " + volume() + "\n";
-
-		JOptionPane.showMessageDialog(null, message);
+		
+		String title = "Sphere";
+		getMessageBox().show(message, title);
 		
 	}
 
