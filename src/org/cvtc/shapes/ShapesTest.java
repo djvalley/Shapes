@@ -4,23 +4,22 @@ public class ShapesTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		Dialog messageBox = new MessageBox();
-//		Renderer render = new Sphere(messageBox, 6);
-//		render.render();
 
-		Cuboid cube = new Cuboid(messageBox, 1, 2, 3);
-		
-		cube.render();
-		
-		Cylinder cylinder = new Cylinder(messageBox, 5, 10);
-		
+		Dialog messageBox = new MessageBox();
+
+		ShapeFactory shapeFactory = new ShapeFactory(messageBox);
+
+
+		// Create an object for each shape
+		Cuboid cuboid = (Cuboid) shapeFactory.make(ShapeType.Cuboid);
+		Cylinder cylinder = (Cylinder) shapeFactory.make(ShapeType.Cylinder);
+		Sphere sphere = (Sphere) shapeFactory.make(ShapeType.Sphere);
+
+		// Output each shape's data
+		cuboid.render();
 		cylinder.render();
-		
-		Sphere sphere = new Sphere(messageBox, 6);
-		
 		sphere.render();
-		
+
 	}
 
 }
